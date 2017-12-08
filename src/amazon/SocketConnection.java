@@ -30,6 +30,7 @@ public class SocketConnection
             }
 
             return stringBuilder.toString();
+
         }
     }
 }
