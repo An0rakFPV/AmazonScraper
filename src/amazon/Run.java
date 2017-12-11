@@ -19,7 +19,7 @@ public class Run {
 //		System.out.println(getAmazonPrice(webSource3));
 //		System.out.println();
 //		System.out.println(getStockPrice(stockSource2));
-		printDow30(dowSource);
+		
 	}
 	
 	public static String getAmazonPrice(String source)
@@ -38,7 +38,7 @@ public class Run {
 		return "$" + source.substring(source.indexOf(beginSearch)+beginSearch.length(), source.indexOf(endSearch));
 	}
 	
-	public static void printDow30(String source)
+	public static String[] getDow30Tickers(String source)
 	{
 		String[] tickers = new String[29];
 		
@@ -49,25 +49,14 @@ public class Run {
 		
 		while(source.indexOf(beginSearch) != -1)
 		{
-			if(source.indexOf(beginSearch) == -1)
-				System.out.println("beginFail");
-			if(source.indexOf(endSearch) == -1)
-				System.out.println("endFail");
-			
 			tickers[iterations] = source.substring(source.indexOf(beginSearch) + beginSearch.length(), source.indexOf(endSearch));
-			System.out.println(tickers[iterations]);
 			
 			source = source.substring(source.indexOf(endSearch) + 1);
 			
 			iterations++;
 		}
 		
-		System.out.println();
-		
-		for(String s: tickers)
-		{
-			System.out.println(s);
-		}
+		return tickers;
 	}
 
 }
